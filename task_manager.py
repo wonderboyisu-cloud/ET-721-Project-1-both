@@ -23,8 +23,8 @@ class TaskManager:
         for index, task in enumerate(self.tasks, start=1):
             print(f"Task {index}: {task}")
 
-    def delete_task(self, index):
-        if self.tasks:
-            self.tasks.pop(0)
-            self.save_tasks()
+def delete_task(self, index):
+    if self.tasks and 0 <= index < len(self.tasks):
+        self.tasks.pop(index)
+        self.save_tasks()
 
