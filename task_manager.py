@@ -32,4 +32,8 @@ class TaskManager:
         if self.tasks and 0 <= index < len(self.tasks):
             self.tasks[index] = f"{self.tasks[index]} - COMPLETED"
             self.save_tasks()
+    def edit_task(self, index, new_description):
+        if self.tasks and 0 <= index < len(self.tasks):
+            self.tasks[index] = new_description
+            self.save_tasks()
 
