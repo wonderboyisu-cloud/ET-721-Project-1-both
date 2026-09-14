@@ -27,4 +27,9 @@ class TaskManager:
         if self.tasks and 0 <= index < len(self.tasks):
             self.tasks.pop(index)
             self.save_tasks()
+    
+    def complete_task(self, index):
+        if self.tasks and 0 <= index < len(self.tasks):
+            self.tasks[index] = f"{self.tasks[index]} - COMPLETED"
+            self.save_tasks()
 
