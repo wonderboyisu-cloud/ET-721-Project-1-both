@@ -21,7 +21,8 @@ class TaskManager:
 
     def view_tasks(self):
         for index, task in enumerate(self.tasks, start=1):
-            print(f"Task {index} *** {task}")
+            print(f"Task {index} --- {task}")
+
 
     def delete_task(self, index):
         if self.tasks and 0 <= index < len(self.tasks):
@@ -32,6 +33,7 @@ class TaskManager:
         if self.tasks and 0 <= index < len(self.tasks):
             self.tasks[index] = f"{self.tasks[index]} - COMPLETED"
             self.save_tasks()
+
     def edit_task(self, index, new_description):
         if self.tasks and 0 <= index < len(self.tasks):
             self.tasks[index] = new_description
