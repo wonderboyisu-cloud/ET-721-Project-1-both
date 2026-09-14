@@ -7,6 +7,7 @@ def main():
     parser.add_argument('--view', action='store_true', help='View all tasks')
     parser.add_argument('--delete', metavar='INDEX', type=int, help='Delete a task by its index')
     parser.add_argument('--complete', metavar='INDEX', type=int, help='Mark a task as completed')
+    parser.add_argument('--edit', nargs=2, metavar=('INDEX', 'DESCRIPTION'), help='Edit a task description')
     args = parser.parse_args()
 
     manager = TaskManager()
@@ -19,6 +20,8 @@ def main():
         manager.delete_task(args.delete - 1)  # Adjust for zero-based index
     elif args.complete is not None:
         manager.complete_task(args.complete - 1)
+    elif args.edit:
+        manager.edit_task(int(args.edit[0]) - 1, args.edit[1])
     else:
         parser.print_help()
     
